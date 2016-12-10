@@ -1,0 +1,8 @@
+{
+    "name": "root/mail",
+    "require": {
+    },
+    "require-dev": {
+        "phpunit/phpunit": "5.5.*"
+    }
+}
