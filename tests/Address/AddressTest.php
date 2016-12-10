@@ -14,7 +14,7 @@ class AddressTest extends \PHPUnit_Framework_TestCase
     public function testGetAddress()
     {
         $address = new Address('myaddress@test.de');
-        $this->assertEquals('myaddress@test.de', $address->getAddress());
+        $this->assertEquals('myaddress1@test.de', $address->getAddress());
 
         $address = new Address('');
         $this->assertEquals('', $address->getAddress());
