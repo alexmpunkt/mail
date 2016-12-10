@@ -6,7 +6,7 @@
  * Time: 20:54
  */
 
-namespace Conversio\Attachment;
+namespace Conversio\Mail\Attachment;
 
 class AttachmentContainer
 {

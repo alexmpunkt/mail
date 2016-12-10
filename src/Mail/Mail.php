@@ -1,9 +1,9 @@
 <?php
-namespace Conversio\Mail;
+namespace Conversio\Mail\Mail;
 
-use Conversio\Address\Address;
-use Conversio\Address\AddressContainer;
-use Conversio\Attachment\AttachmentContainer;
+use Conversio\Mail\Address\Address;
+use Conversio\Mail\Address\AddressContainer;
+use Conversio\Mail\Attachment\AttachmentContainer;
 
 /**
  * Created by PhpStorm.

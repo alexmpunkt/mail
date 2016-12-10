@@ -6,7 +6,7 @@
  * Time: 22:13
  */
 
-namespace Conversio\Address;
+namespace Conversio\Mail\Address;
 
 class AddressContainer
 {
@@ -23,7 +23,7 @@ class AddressContainer
     /**
      * @return Address[]
      */
-    public function asArray()
+    public function asArray() : array
     {
         return $this->addresses;
     }
@@ -31,8 +31,16 @@ class AddressContainer
     /**
      * @return bool
      */
-    public function isEmpty()
+    public function isEmpty() : bool
     {
         return empty($this->addresses);
+    }
+
+    /**
+     * @return int
+     */
+    public function size() : int
+    {
+        return count($this->addresses);
     }
 }

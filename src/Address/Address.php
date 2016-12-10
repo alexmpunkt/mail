@@ -6,7 +6,7 @@
  * Time: 22:14
  */
 
-namespace Conversio\Address;
+namespace Conversio\Mail\Address;
 
 class Address
 {
@@ -47,7 +47,7 @@ class Address
      */
     public function isValid()
     {
-        return filter_var($this->address, FILTER_VALIDATE_EMAIL);
+        return filter_var($this->address, FILTER_VALIDATE_EMAIL) !== false;
     }
 
 }

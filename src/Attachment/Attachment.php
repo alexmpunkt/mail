@@ -1,5 +1,5 @@
 <?php
-namespace Conversio\Attachment;
+namespace Conversio\Mail\Attachment;
 /**
  * Created by PhpStorm.
  * User: alex
