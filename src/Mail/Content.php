@@ -6,7 +6,7 @@
  * Time: 20:45
  */
 
-namespace Conversio\Mail\Mail;
+namespace Conversio\Mail;
 
 class Content
 {

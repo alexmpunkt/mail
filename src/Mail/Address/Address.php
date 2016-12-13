@@ -11,9 +11,9 @@ namespace Conversio\Mail\Address;
 class Address
 {
     /**
-     * @var string $address
+     * @var string $store
      */
-    private $address;
+    protected $store;
 
     /**
      * @var string $name
@@ -22,16 +22,16 @@ class Address
 
     public function __construct(string $address, string $name = '')
     {
-        $this->address = $address;
-        $this->name    = $name;
+        $this->store = $address;
+        $this->name  = $name;
     }
 
     /**
      * @return string
      */
-    public function getAddress(): string
+    public function getStore(): string
     {
-        return $this->address;
+        return $this->store;
     }
 
     /**
@@ -47,7 +47,7 @@ class Address
      */
     public function isValid()
     {
-        return filter_var($this->address, FILTER_VALIDATE_EMAIL) !== false;
+        return filter_var($this->store, FILTER_VALIDATE_EMAIL) !== false;
     }
 
 }

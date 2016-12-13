@@ -33,9 +33,9 @@ class AddressContainerTest extends \PHPUnit_Framework_TestCase
         $address2  = new Address('test2@test.de', 'Max Mustermann');
         $container = new AddressContainer();
         $container->addAddress($address);
-        $this->assertEquals(1, $container->size());
+        $this->assertEquals(1, $container->count());
         $container->addAddress($address2);
-        $this->assertEquals(2, $container->size());
+        $this->assertEquals(2, $container->count());
     }
 
     public function testSize()
@@ -45,11 +45,11 @@ class AddressContainerTest extends \PHPUnit_Framework_TestCase
         $address3  = new Address('test3@test.de', 'Max Mustermann');
         $container = new AddressContainer();
         $container->addAddress($address);
-        $this->assertEquals(1, $container->size());
+        $this->assertEquals(1, $container->count());
         $container->addAddress($address2);
-        $this->assertEquals(2, $container->size());
+        $this->assertEquals(2, $container->count());
         $container->addAddress($address3);
-        $this->assertEquals(3, $container->size());
+        $this->assertEquals(3, $container->count());
     }
 
 }

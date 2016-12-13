@@ -1,5 +1,5 @@
 <?php
-namespace Conversio\Mail\Mail;
+namespace Conversio\Mail;
 
 use Conversio\Mail\Address\Address;
 use Conversio\Mail\Address\AddressContainer;
@@ -92,6 +92,14 @@ class Mail
     public function getBccs(): AddressContainer
     {
         return $this->bccs;
+    }
+
+    /**
+     * @return AttachmentContainer
+     */
+    public function getAttachments(): AttachmentContainer
+    {
+        return $this->attachments;
     }
 
 }

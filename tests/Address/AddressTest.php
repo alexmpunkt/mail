@@ -14,10 +14,10 @@ class AddressTest extends \PHPUnit_Framework_TestCase
     public function testGetAddress()
     {
         $address = new Address('myaddress@test.de');
-        $this->assertEquals('myaddress1@test.de', $address->getAddress());
+        $this->assertEquals('myaddress@test.de', $address->getStore());
 
         $address = new Address('');
-        $this->assertEquals('', $address->getAddress());
+        $this->assertEquals('', $address->getStore());
     }
 
     public function testGetGetName()
