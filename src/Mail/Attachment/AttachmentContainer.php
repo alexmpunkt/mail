@@ -14,11 +14,6 @@ class AttachmentContainer extends AbstractContainer
 {
 
     /**
-     * @var AttachmentInterface[]
-     */
-    protected $store;
-
-    /**
      * @param AttachmentInterface $attachment
      */
     public function addAttachmentInterface(AttachmentInterface $attachment)

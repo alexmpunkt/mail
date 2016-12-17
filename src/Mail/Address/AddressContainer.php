@@ -12,10 +12,6 @@ use Conversio\Mail\Container\AbstractContainer;
 
 class AddressContainer extends AbstractContainer
 {
-    /**
-     * @var Address[] $store
-     */
-    protected $store = [];
 
     public function addAddress(Address $address)
     {
