@@ -18,7 +18,7 @@ use \PHPUnit_Framework_TestCase;
 class MailTest extends PHPUnit_Framework_TestCase
 {
 
-    public function testSetId()
+    public function testGetId()
     {
         $mail = new Mail(new Address('test@test.de'));
         $mail->setId('kJhdhw7271Daw');
@@ -27,6 +27,9 @@ class MailTest extends PHPUnit_Framework_TestCase
         $mail = new Mail(new Address('test@test.de'));
         $mail->setId('klj90823KHJDHW');
         $this->assertEquals('klj90823KHJDHW', $mail->getId());
+
+        $mail = new Mail(new Address('test@test.de'));
+        $this->assertEquals('', $mail->getId());
     }
 
     public function testGetSender()

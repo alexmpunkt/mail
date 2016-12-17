@@ -17,7 +17,7 @@ class Mail
     /**
      * @var string $id
      */
-    private $id;
+    private $id = '';
 
     /**
      * @var Address
