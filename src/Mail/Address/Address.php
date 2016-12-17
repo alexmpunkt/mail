@@ -11,9 +11,9 @@ namespace Conversio\Mail\Address;
 class Address
 {
     /**
-     * @var string $store
+     * @var string $address
      */
-    protected $store;
+    protected $address;
 
     /**
      * @var string $name
@@ -22,16 +22,16 @@ class Address
 
     public function __construct(string $address, string $name = '')
     {
-        $this->store = $address;
-        $this->name  = $name;
+        $this->address = strtolower(trim($address));
+        $this->name    = trim($name);
     }
 
     /**
      * @return string
      */
-    public function getStore(): string
+    public function getAddress(): string
     {
-        return $this->store;
+        return $this->address;
     }
 
     /**
@@ -45,9 +45,21 @@ class Address
     /**
      * @return boolean
      */
-    public function isValid()
+    public function isValid(): bool
     {
-        return filter_var($this->store, FILTER_VALIDATE_EMAIL) !== false;
+        return filter_var($this->address, FILTER_VALIDATE_EMAIL) !== false;
+    }
+
+    /**
+     * Checks, if the given addresses are equal. this only includes the address, the name is being ignored
+     *
+     * @param Address $address
+     *
+     * @return bool
+     */
+    public function equals(Address $address): bool
+    {
+        return $this->getAddress() === $address->getAddress();
     }
 
 }

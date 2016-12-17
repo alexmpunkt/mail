@@ -28,6 +28,9 @@ abstract class AbstractContainer
         return count($this->store);
     }
 
+    /**
+     * @return array
+     */
     public function asArray(): array
     {
         return $this->store;

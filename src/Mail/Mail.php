@@ -13,6 +13,10 @@ use Conversio\Mail\Attachment\AttachmentContainer;
  */
 class Mail
 {
+    /**
+     * @var string $id
+     */
+    private $id;
 
     /**
      * @var Address
@@ -57,7 +61,7 @@ class Mail
     /**
      * @return Content
      */
-    public function getContent(): Content
+    public function content(): Content
     {
         return $this->content;
     }
@@ -65,7 +69,7 @@ class Mail
     /**
      * @return AddressContainer
      */
-    public function getRecipients(): AddressContainer
+    public function recipients(): AddressContainer
     {
         return $this->recipients;
     }
@@ -73,7 +77,7 @@ class Mail
     /**
      * @return Address
      */
-    public function getSender(): Address
+    public function sender(): Address
     {
         return $this->sender;
     }
@@ -81,7 +85,7 @@ class Mail
     /**
      * @return AddressContainer
      */
-    public function getCcs(): AddressContainer
+    public function ccs(): AddressContainer
     {
         return $this->ccs;
     }
@@ -89,7 +93,7 @@ class Mail
     /**
      * @return AddressContainer
      */
-    public function getBccs(): AddressContainer
+    public function bccs(): AddressContainer
     {
         return $this->bccs;
     }
@@ -97,9 +101,25 @@ class Mail
     /**
      * @return AttachmentContainer
      */
-    public function getAttachments(): AttachmentContainer
+    public function attachments(): AttachmentContainer
     {
         return $this->attachments;
+    }
+
+    /**
+     * @return string
+     */
+    public function getId(): string
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param string $id
+     */
+    public function setId(string $id)
+    {
+        $this->id = $id;
     }
 
 }

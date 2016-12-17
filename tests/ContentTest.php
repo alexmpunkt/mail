@@ -14,17 +14,17 @@ use \PHPUnit_Framework_TestCase;
 
 class ContentTest extends PHPUnit_Framework_TestCase
 {
-    public function testSetHtml()
+    public function testGetHtml()
     {
         $content = new Content();
         $content->setHtml('<b>Dies ist ein Text</b>');
-        $this->assertEquals('<b>Dies ist ein Text</b>',$content->getHtml());
+        $this->assertEquals('<b>Dies ist ein Text</b>', $content->getHtml());
     }
 
-    public function testSetText()
+    public function testGetText()
     {
         $content = new Content();
         $content->setText('Dies ist ein Text');
-        $this->assertEquals('Dies ist ein Text',$content->getText());
+        $this->assertEquals('Dies ist ein Text', $content->getText());
     }
 }
