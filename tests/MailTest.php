@@ -32,6 +32,20 @@ class MailTest extends PHPUnit_Framework_TestCase
         $this->assertEquals('', $mail->getId());
     }
 
+    public function testGetSubject()
+    {
+        $mail = new Mail(new Address('test@test.de'));
+        $mail->setSubject('kJhdhw7271Daw');
+        $this->assertEquals('kJhdhw7271Daw', $mail->getSubject());
+
+        $mail = new Mail(new Address('test@test.de'));
+        $mail->setSubject('klj90823KHJDHW');
+        $this->assertEquals('klj90823KHJDHW', $mail->getSubject());
+
+        $mail = new Mail(new Address('test@test.de'));
+        $this->assertEquals('', $mail->getSubject());
+    }
+
     public function testGetSender()
     {
         $mail = new Mail(new Address('john.doe@test.de', 'John Doe'));

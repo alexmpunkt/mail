@@ -25,6 +25,11 @@ class Mail
     private $sender;
 
     /**
+     * @var string
+     */
+    private $subject = '';
+
+    /**
      * @var Content
      */
     private $content;
@@ -135,6 +140,22 @@ class Mail
     public function getCreatedAt(): DateTime
     {
         return $this->createdAt;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSubject(): string
+    {
+        return $this->subject;
+    }
+
+    /**
+     * @param string $subject
+     */
+    public function setSubject(string $subject)
+    {
+        $this->subject = $subject;
     }
 
 }
