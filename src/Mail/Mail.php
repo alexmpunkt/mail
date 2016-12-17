@@ -4,6 +4,7 @@ namespace Conversio\Mail;
 use Conversio\Mail\Address\Address;
 use Conversio\Mail\Address\AddressContainer;
 use Conversio\Mail\Attachment\AttachmentContainer;
+use DateTime;
 
 /**
  * Created by PhpStorm.
@@ -48,7 +49,12 @@ class Mail
      */
     private $attachments;
 
-    public function __construct(Address $sender)
+    /**
+     * @var DateTime
+     */
+    private $createdAt;
+
+    public function __construct(Address $sender, DateTime $createdAt = null)
     {
         $this->sender      = $sender;
         $this->content     = new Content();
@@ -56,6 +62,7 @@ class Mail
         $this->ccs         = new AddressContainer();
         $this->bccs        = new AddressContainer();
         $this->attachments = new AttachmentContainer();
+        $this->createdAt   = $createdAt !== null ? $createdAt : new DateTime();
     }
 
     /**
@@ -120,6 +127,14 @@ class Mail
     public function setId(string $id)
     {
         $this->id = $id;
+    }
+
+    /**
+     * @return DateTime
+     */
+    public function getCreatedAt(): DateTime
+    {
+        return $this->createdAt;
     }
 
 }

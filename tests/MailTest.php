@@ -70,4 +70,10 @@ class MailTest extends PHPUnit_Framework_TestCase
     {
         $this->assertInstanceOf(AttachmentContainer::class, $this->getMail()->attachments());
     }
+
+    public function testGetCreatedAt()
+    {
+        $mail = new Mail(new Address('test@test.de'), new \DateTime('2016-01-01'));
+        $this->assertEquals(new \DateTime('2016-01-01'), $mail->getCreatedAt());
+    }
 }
