@@ -19,4 +19,9 @@ interface MailerAdapterInterface
      */
     public function send(Mail $mail): bool;
 
+    /**
+     * @return string
+     */
+    public function getErrorInfo(): string;
+
 }

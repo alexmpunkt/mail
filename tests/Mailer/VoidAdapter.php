@@ -37,4 +37,13 @@ class VoidAdapter implements MailerAdapterInterface
     {
         return $this->returnVal;
     }
+
+    /**
+     * @return string
+     */
+    public function getErrorInfo(): string
+    {
+        return '';
+    }
+
 }
