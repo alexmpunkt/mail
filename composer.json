@@ -8,7 +8,8 @@
     },
     "autoload": {
         "psr-4": {
-            "Conversio\\Mail\\": "src/Mail"
+            "Conversio\\Mail\\": "src/Mail",
+            "Conversio\\Mail\\Tests\\": "tests"
         }
     }
 }
