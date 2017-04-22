@@ -11,13 +11,13 @@ namespace Conversio\Mail\Tests\Mailer;
 use Conversio\Mail\Address\Address;
 use Conversio\Mail\Mail;
 use Conversio\Mail\Mailer\Mailer;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class MailerTest
  * @package Conversio\Mail\Tests\Mailer
  */
-class MailerTest extends PHPUnit_Framework_TestCase
+class MailerTest extends TestCase
 {
     public function testSend()
     {

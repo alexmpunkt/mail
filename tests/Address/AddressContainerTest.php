@@ -10,12 +10,13 @@ namespace Conversio\Mail\Tests\Address;
 
 use Conversio\Mail\Address\Address;
 use Conversio\Mail\Address\AddressContainer;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class AddressContainerTest
  * @package Conversio\Mail\Tests\Address
  */
-class AddressContainerTest extends \PHPUnit_Framework_TestCase
+class AddressContainerTest extends TestCase
 {
     public function testIsEmpty()
     {

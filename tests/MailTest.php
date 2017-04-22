@@ -13,13 +13,13 @@ use Conversio\Mail\Address\AddressContainer;
 use Conversio\Mail\Attachment\AttachmentContainer;
 use Conversio\Mail\Content;
 use Conversio\Mail\Mail;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class MailTest
  * @package Conversio\Mail\Tests
  */
-class MailTest extends PHPUnit_Framework_TestCase
+class MailTest extends TestCase
 {
     public function testGetId()
     {

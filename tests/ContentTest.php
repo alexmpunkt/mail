@@ -10,13 +10,13 @@
 namespace Conversio\Mail\Tests;
 
 use Conversio\Mail\Content;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class ContentTest
  * @package Conversio\Mail\Tests
  */
-class ContentTest extends PHPUnit_Framework_TestCase
+class ContentTest extends TestCase
 {
     public function testGetHtml()
     {
