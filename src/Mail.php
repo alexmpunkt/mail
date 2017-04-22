@@ -1,4 +1,5 @@
 <?php
+
 namespace Conversio\Mail;
 
 use Conversio\Mail\Address\Address;
