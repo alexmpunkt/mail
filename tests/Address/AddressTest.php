@@ -1,4 +1,5 @@
 <?php
+
 namespace Conversio\Mail\Tests\Address;
 
 use Codeception\Specify;
