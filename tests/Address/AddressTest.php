@@ -4,10 +4,8 @@ namespace Conversio\Mail\Tests\Address;
 use Conversio\Mail\Address\Address;
 
 /**
- * Created by PhpStorm.
- * User: alex
- * Date: 08.12.16
- * Time: 21:42
+ * Class AddressTest
+ * @package Conversio\Mail\Tests\Address
  */
 class AddressTest extends \PHPUnit_Framework_TestCase
 {
@@ -40,5 +38,4 @@ class AddressTest extends \PHPUnit_Framework_TestCase
         $address = new Address('myaddress@test.de.com');
         $this->assertTrue($address->isValid());
     }
-
 }

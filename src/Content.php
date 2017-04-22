@@ -8,6 +8,10 @@
 
 namespace Conversio\Mail;
 
+/**
+ * Class Content
+ * @package Conversio\Mail
+ */
 class Content
 {
     /**
@@ -51,5 +55,4 @@ class Content
     {
         $this->text = $text;
     }
-
 }

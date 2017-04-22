@@ -11,9 +11,12 @@ namespace Conversio\Mail\Mailer;
 use Conversio\Mail\Mail;
 use Conversio\Mail\Mailer\Adapter\MailerAdapterInterface;
 
+/**
+ * Class Mailer
+ * @package Conversio\Mail\Mailer
+ */
 class Mailer implements MailerInterface
 {
-
     /**
      * @var MailerAdapterInterface
      */
@@ -38,5 +41,4 @@ class Mailer implements MailerInterface
     {
         return $this->adapter->send($mail);
     }
-
 }

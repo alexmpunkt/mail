@@ -10,14 +10,16 @@ namespace Conversio\Mail\Mailer;
 
 use Conversio\Mail\Mail;
 
+/**
+ * Interface MailerInterface
+ * @package Conversio\Mail\Mailer
+ */
 interface MailerInterface
 {
-
     /**
      * @param Mail $mail
      *
      * @return bool
      */
     public function send(Mail $mail): bool;
-
 }

@@ -7,9 +7,21 @@
         "phpunit/phpunit": "5.5.*"
     },
     "autoload": {
+        "classmap": [
+            "src/",
+            "tests/"
+        ],
         "psr-4": {
             "Conversio\\Mail\\": "src/Mail",
             "Conversio\\Mail\\Tests\\": "tests"
         }
+    },
+    "scripts": {
+        "test": [
+            "phpunit"
+        ],
+        "coverage": [
+            "phpunit --coverage-clover=coverage.xml"
+        ]
     }
 }

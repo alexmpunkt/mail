@@ -13,9 +13,12 @@ use Conversio\Mail\Mail;
 use Conversio\Mail\Mailer\Mailer;
 use PHPUnit_Framework_TestCase;
 
+/**
+ * Class MailerTest
+ * @package Conversio\Mail\Tests\Mailer
+ */
 class MailerTest extends PHPUnit_Framework_TestCase
 {
-
     public function testSend()
     {
         $mail = new Mail(new Address('test@test.de'));

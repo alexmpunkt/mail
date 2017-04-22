@@ -10,9 +10,12 @@ namespace Conversio\Mail\Attachment;
 
 use Conversio\Mail\Container\AbstractContainer;
 
+/**
+ * Class AttachmentContainer
+ * @package Conversio\Mail\Attachment
+ */
 class AttachmentContainer extends AbstractContainer
 {
-
     /**
      * @param AttachmentInterface $attachment
      */
@@ -28,5 +31,4 @@ class AttachmentContainer extends AbstractContainer
     {
         return parent::asArray();
     }
-
 }

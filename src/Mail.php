@@ -7,10 +7,8 @@ use Conversio\Mail\Attachment\AttachmentContainer;
 use DateTime;
 
 /**
- * Created by PhpStorm.
- * User: alex
- * Date: 07.12.16
- * Time: 22:13
+ * Class Mail
+ * @package Conversio\Mail
  */
 class Mail
 {
@@ -59,6 +57,12 @@ class Mail
      */
     private $createdAt;
 
+    /**
+     * Mail constructor.
+     *
+     * @param Address       $sender
+     * @param DateTime|null $createdAt
+     */
     public function __construct(Address $sender, DateTime $createdAt = null)
     {
         $this->sender      = $sender;
@@ -157,5 +161,4 @@ class Mail
     {
         $this->subject = $subject;
     }
-
 }

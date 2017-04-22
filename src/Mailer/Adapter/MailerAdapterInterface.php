@@ -10,6 +10,10 @@ namespace Conversio\Mail\Mailer\Adapter;
 
 use Conversio\Mail\Mail;
 
+/**
+ * Interface MailerAdapterInterface
+ * @package Conversio\Mail\Mailer\Adapter
+ */
 interface MailerAdapterInterface
 {
     /**
@@ -23,5 +27,4 @@ interface MailerAdapterInterface
      * @return string
      */
     public function getErrorInfo(): string;
-
 }

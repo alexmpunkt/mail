@@ -8,6 +8,10 @@
 
 namespace Conversio\Mail\Attachment;
 
+/**
+ * Interface AttachmentInterface
+ * @package Conversio\Mail\Attachment
+ */
 interface AttachmentInterface
 {
     /**
@@ -34,5 +38,4 @@ interface AttachmentInterface
      * @return string
      */
     public function getFullname(): string;
-
 }

@@ -9,7 +9,9 @@ namespace Conversio\Mail\Container;
 
 abstract class AbstractContainer
 {
-
+    /**
+     * @var array
+     */
     protected $store = [];
 
     /**
@@ -35,5 +37,4 @@ abstract class AbstractContainer
     {
         return $this->store;
     }
-
 }

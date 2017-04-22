@@ -8,6 +8,10 @@
 
 namespace Conversio\Mail\Address;
 
+/**
+ * Class Address
+ * @package Conversio\Mail\Address
+ */
 class Address
 {
     /**
@@ -20,6 +24,12 @@ class Address
      */
     private $name;
 
+    /**
+     * Address constructor.
+     *
+     * @param string $address
+     * @param string $name
+     */
     public function __construct(string $address, string $name = '')
     {
         $this->address = strtolower(trim($address));
@@ -61,5 +71,4 @@ class Address
     {
         return $this->getAddress() === $address->getAddress();
     }
-
 }

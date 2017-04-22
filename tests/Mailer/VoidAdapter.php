@@ -11,6 +11,10 @@ namespace Conversio\Mail\Tests\Mailer;
 use Conversio\Mail\Mail;
 use Conversio\Mail\Mailer\Adapter\MailerAdapterInterface;
 
+/**
+ * Class VoidAdapter
+ * @package Conversio\Mail\Tests\Mailer
+ */
 class VoidAdapter implements MailerAdapterInterface
 {
     /**
@@ -45,5 +49,4 @@ class VoidAdapter implements MailerAdapterInterface
     {
         return '';
     }
-
 }

@@ -11,6 +11,10 @@ namespace Conversio\Mail\Tests\Address;
 use Conversio\Mail\Address\Address;
 use Conversio\Mail\Address\AddressContainer;
 
+/**
+ * Class AddressContainerTest
+ * @package Conversio\Mail\Tests\Address
+ */
 class AddressContainerTest extends \PHPUnit_Framework_TestCase
 {
     public function testIsEmpty()
@@ -51,5 +55,4 @@ class AddressContainerTest extends \PHPUnit_Framework_TestCase
         $container->addAddress($address3);
         $this->assertEquals(3, $container->count());
     }
-
 }
