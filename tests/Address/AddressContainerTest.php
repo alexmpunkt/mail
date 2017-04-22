@@ -56,4 +56,19 @@ class AddressContainerTest extends TestCase
         $container->addAddress($address3);
         $this->assertEquals(3, $container->count());
     }
+
+    public function testAsArray()
+    {
+        $container = new AddressContainer();
+        $this->assertEquals([], $container->asArray());
+
+        $address  = new Address('test@test.de', 'Max Mustermann');
+        $address2 = new Address('test2@test.de', 'Max Mustermann');
+        $address3 = new Address('test3@test.de', 'Max Mustermann');
+        $container->addAddress($address);
+        $container->addAddress($address2);
+        $container->addAddress($address3);
+
+        $this->assertCount(3, $container->asArray());
+    }
 }
