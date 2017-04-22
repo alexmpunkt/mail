@@ -12,7 +12,7 @@
             "tests/"
         ],
         "psr-4": {
-            "Conversio\\Mail\\": "src/Mail",
+            "Conversio\\Mail\\": "src",
             "Conversio\\Mail\\Tests\\": "tests"
         }
     },
