@@ -30,7 +30,7 @@ final class MailPipeline implements MailPipelineInterface
      */
     public function process(Mail $mail): ProcessResult
     {
-        $processMail = clone($mail);
+        $processMail = clone $mail;
         $result      = new ProcessResult();
         foreach ($this->pipes as $pipe) {
             $pipe->process($processMail, $result);
