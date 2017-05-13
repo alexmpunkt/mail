@@ -22,4 +22,9 @@ interface MailerInterface
      * @return bool
      */
     public function send(Mail $mail): bool;
+
+    /**
+     * @return string
+     */
+    public function getErrorInfo(): string;
 }
