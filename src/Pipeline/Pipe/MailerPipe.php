@@ -31,13 +31,22 @@ final class MailerPipe implements MailPipeInterface
     /**
      * @param Mail          $mail
      * @param ProcessResult $result
+     *
+     * @return ProcessResult
      */
-    public function process(Mail $mail, ProcessResult $result)
+    public function process(Mail $mail, ProcessResult $result): ProcessResult
     {
-        $result->setStatus(ProcessResult::SUCCEEDED);
-        if (!$this->mailer->send($mail)) {
+        if ($result->errored()) {
+            return $result;
+        }
+
+        if ($this->mailer->send($mail)) {
+            $result->setStatus(ProcessResult::SUCCEEDED);
+        } else {
             $result->setStatus(ProcessResult::FAILED);
             $result->addInfo(self::class, $this->mailer->getErrorInfo());
         }
+
+        return $result;
     }
 }

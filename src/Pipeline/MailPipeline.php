@@ -31,9 +31,10 @@ final class MailPipeline implements MailPipelineInterface
     public function process(Mail $mail): ProcessResult
     {
         $processMail = clone $mail;
-        $result      = new ProcessResult();
+        $result      = ProcessResult::new();
+        $result->setStatus(ProcessResult::SUCCEEDED);
         foreach ($this->pipes as $pipe) {
-            $pipe->process($processMail, $result);
+            $result = $pipe->process($processMail, $result);
         }
 
         return $result;

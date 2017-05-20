@@ -25,6 +25,11 @@ final class ProcessResult
     private $infos = [];
 
     /**
+     * @var array
+     */
+    private $attributes = [];
+
+    /**
      * @return ProcessResult
      */
     public static function new(): self
@@ -99,5 +104,42 @@ final class ProcessResult
             return $this->infos[$key];
         }
         throw new Exception(sprintf('no information available for %s', $key));
+    }
+
+    /**
+     * @param $key
+     *
+     * @return bool
+     */
+    public function hasAttribute($key): bool
+    {
+        return array_key_exists($key, $this->attributes);
+    }
+
+    /**
+     * @param $key
+     *
+     * @return mixed
+     * @throws Exception
+     */
+    public function getAttribute($key)
+    {
+        if ($this->hasAttribute($key)) {
+            return $this->attributes[$key];
+        }
+        throw new Exception(sprintf('no attribute set fpr %s', $key));
+    }
+
+    /**
+     * @param $key
+     * @param $value
+     *
+     * @return self
+     */
+    public function withAttribute($key, $value): self
+    {
+        $this->attributes[$key] = $value;
+
+        return $this;
     }
 }

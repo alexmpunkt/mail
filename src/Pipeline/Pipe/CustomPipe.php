@@ -26,9 +26,11 @@ final class CustomPipe implements MailPipeInterface
     /**
      * @param Mail          $mail
      * @param ProcessResult $result
+     *
+     * @return ProcessResult
      */
-    public function process(Mail $mail, ProcessResult $result)
+    public function process(Mail $mail, ProcessResult $result): ProcessResult
     {
-        call_user_func($this->callable, $mail, $result);
+        return call_user_func($this->callable, $mail, $result);
     }
 }

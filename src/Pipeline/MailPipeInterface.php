@@ -13,6 +13,8 @@ interface MailPipeInterface
     /**
      * @param Mail          $mail
      * @param ProcessResult $result
+     *
+     * @return ProcessResult
      */
-    public function process(Mail $mail, ProcessResult $result);
+    public function process(Mail $mail, ProcessResult $result): ProcessResult;
 }
