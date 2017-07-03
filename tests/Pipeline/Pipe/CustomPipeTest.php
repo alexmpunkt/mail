@@ -2,7 +2,6 @@
 
 namespace Conversio\Mail\Tests\Pipeline\Pipe;
 
-use Conversio\Mail\Address\Address;
 use Conversio\Mail\Mail;
 use Conversio\Mail\Pipeline\Pipe\CustomPipe;
 use Conversio\Mail\Pipeline\ProcessResult;

@@ -3,7 +3,6 @@
 namespace Conversio\Mail\Tests\Pipeline\Pipe;
 
 use Codeception\Specify;
-use Conversio\Mail\Address\Address;
 use Conversio\Mail\Mail;
 use Conversio\Mail\Mailer\MailerInterface;
 use Conversio\Mail\Pipeline\Pipe\MailerPipe;
