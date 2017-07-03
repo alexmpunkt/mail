@@ -1,11 +1,5 @@
 <?php
 
-/**
- * Created by PhpStorm.
- * User: alex
- * Date: 17.12.16
- * Time: 11:46
- */
 namespace Conversio\Mail\Tests;
 
 use Conversio\Mail\Address\Address;
@@ -13,6 +7,7 @@ use Conversio\Mail\Address\AddressContainer;
 use Conversio\Mail\Attachment\AttachmentContainer;
 use Conversio\Mail\Content;
 use Conversio\Mail\Mail;
+use DateTime;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -23,38 +18,41 @@ class MailTest extends TestCase
 {
     public function testGetId()
     {
-        $mail = new Mail(new Address('test@test.de'));
+        $mail = new Mail();
         $mail->setId('kJhdhw7271Daw');
         $this->assertEquals('kJhdhw7271Daw', $mail->getId());
 
-        $mail = new Mail(new Address('test@test.de'));
+        $mail = new Mail();
         $mail->setId('klj90823KHJDHW');
         $this->assertEquals('klj90823KHJDHW', $mail->getId());
 
-        $mail = new Mail(new Address('test@test.de'));
+        $mail = new Mail();
         $this->assertEquals('', $mail->getId());
     }
 
     public function testGetSubject()
     {
-        $mail = new Mail(new Address('test@test.de'));
+        $mail = new Mail();
         $mail->setSubject('kJhdhw7271Daw');
         $this->assertEquals('kJhdhw7271Daw', $mail->getSubject());
 
-        $mail = new Mail(new Address('test@test.de'));
+        $mail = new Mail();
         $mail->setSubject('klj90823KHJDHW');
         $this->assertEquals('klj90823KHJDHW', $mail->getSubject());
 
-        $mail = new Mail(new Address('test@test.de'));
+        $mail = new Mail();
         $this->assertEquals('', $mail->getSubject());
     }
 
     public function testGetSender()
     {
-        $mail = new Mail(new Address('john.doe@test.de', 'John Doe'));
+        $mail = new Mail();
+        $this->assertFalse($mail->isSenderSet());
+        $mail->setSender(new Address('john.doe@test.de', 'John Doe'));
         $this->assertTrue($mail->sender()->equals(new Address('john.doe@test.de', 'John Doe')));
+        $this->assertTrue($mail->isSenderSet());
 
-        $mail = new Mail(new Address('max.mustermann@test.de', 'Max Mustermann'));
+        $mail->setSender(new Address('max.mustermann@test.de', 'Max Mustermann'));
         $this->assertTrue($mail->sender()->equals(new Address('max.mustermann@test.de')));
     }
 
@@ -63,7 +61,7 @@ class MailTest extends TestCase
      */
     private function getMail()
     {
-        return new Mail(new Address('john.doe@test.de', 'John Doe'));
+        return new Mail();
     }
 
     public function testRecipients()
@@ -93,7 +91,7 @@ class MailTest extends TestCase
 
     public function testGetCreatedAt()
     {
-        $mail = new Mail(new Address('test@test.de'), new \DateTime('2016-01-01'));
-        $this->assertEquals(new \DateTime('2016-01-01'), $mail->getCreatedAt());
+        $mail = new Mail(new DateTime('2016-01-01'));
+        $this->assertEquals(new DateTime('2016-01-01'), $mail->getCreatedAt());
     }
 }

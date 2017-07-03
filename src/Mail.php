@@ -6,6 +6,7 @@ use Conversio\Mail\Address\Address;
 use Conversio\Mail\Address\AddressContainer;
 use Conversio\Mail\Attachment\AttachmentContainer;
 use DateTime;
+use Exception;
 
 /**
  * Class Mail
@@ -61,18 +62,45 @@ class Mail
     /**
      * Mail constructor.
      *
-     * @param Address       $sender
      * @param DateTime|null $createdAt
      */
-    public function __construct(Address $sender, DateTime $createdAt = null)
+    public function __construct(DateTime $createdAt = null)
     {
-        $this->sender      = $sender;
         $this->content     = new Content();
         $this->recipients  = new AddressContainer();
         $this->ccs         = new AddressContainer();
         $this->bccs        = new AddressContainer();
         $this->attachments = new AttachmentContainer();
         $this->createdAt   = $createdAt !== null ? $createdAt : new DateTime();
+    }
+
+    /**
+     * @param Address $sender
+     */
+    public function setSender(Address $sender)
+    {
+        $this->sender = $sender;
+    }
+
+    /**
+     * @return Address
+     * @throws Exception
+     */
+    public function sender(): Address
+    {
+        if (!$this->isSenderSet()) {
+            throw new Exception('There is no sender given');
+        }
+
+        return $this->sender;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isSenderSet(): bool
+    {
+        return $this->sender !== null;
     }
 
     /**
@@ -89,14 +117,6 @@ class Mail
     public function recipients(): AddressContainer
     {
         return $this->recipients;
-    }
-
-    /**
-     * @return Address
-     */
-    public function sender(): Address
-    {
-        return $this->sender;
     }
 
     /**

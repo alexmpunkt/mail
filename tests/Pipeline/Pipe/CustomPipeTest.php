@@ -16,7 +16,7 @@ final class CustomPipeTest extends TestCase
 {
     public function testProcess()
     {
-        $mail   = new Mail(new Address('mail@test.de'));
+        $mail   = new Mail();
         $result = ProcessResult::new();
         $this->assertFalse($result->failed());
         $pipe = new CustomPipe(function (Mail $mail, ProcessResult $result) {
