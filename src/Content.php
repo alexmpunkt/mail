@@ -17,12 +17,12 @@ class Content
     /**
      * @var string
      */
-    private $html;
+    private $html = '';
 
     /**
      * @var string
      */
-    private $text;
+    private $text = '';
 
     /**
      * @return string

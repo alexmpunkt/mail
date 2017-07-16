@@ -21,6 +21,7 @@ class ContentTest extends TestCase
     public function testGetHtml()
     {
         $content = new Content();
+        $this->assertEquals('',$content->getHtml());
         $content->setHtml('<b>Dies ist ein Text</b>');
         $this->assertEquals('<b>Dies ist ein Text</b>', $content->getHtml());
     }
@@ -28,6 +29,7 @@ class ContentTest extends TestCase
     public function testGetText()
     {
         $content = new Content();
+        $this->assertEquals('',$content->getText());
         $content->setText('Dies ist ein Text');
         $this->assertEquals('Dies ist ein Text', $content->getText());
     }
