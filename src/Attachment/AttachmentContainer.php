@@ -19,7 +19,7 @@ class AttachmentContainer extends AbstractContainer
     /**
      * @param AttachmentInterface $attachment
      */
-    public function addAttachmentInterface(AttachmentInterface $attachment)
+    public function addAttachment(AttachmentInterface $attachment)
     {
         $this->store[] = $attachment;
     }

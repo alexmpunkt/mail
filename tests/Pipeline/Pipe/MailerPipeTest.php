@@ -3,7 +3,6 @@
 namespace Conversio\Mail\Tests\Pipeline\Pipe;
 
 use Codeception\Specify;
-use Conversio\Mail\Address\Address;
 use Conversio\Mail\Mail;
 use Conversio\Mail\Mailer\MailerInterface;
 use Conversio\Mail\Pipeline\Pipe\MailerPipe;
@@ -23,21 +22,21 @@ final class MailerPipeTest extends TestCase
         $this->specify('successfully send', function () {
             $pipe   = new MailerPipe($this->getMailerMock(true));
             $result = ProcessResult::new();
-            $mail   = new Mail(new Address('test@test.com'));
+            $mail   = new Mail();
             $this->assertTrue($pipe->process($mail, $result)->succeeded());
         });
 
         $this->specify('send failed', function () {
             $pipe   = new MailerPipe($this->getMailerMock(false));
             $result = ProcessResult::new();
-            $mail   = new Mail(new Address('test@test.com'));
+            $mail   = new Mail();
             $this->assertTrue($pipe->process($mail, $result)->failed());
         });
 
         $this->specify('send failed, check info', function () {
             $pipe   = new MailerPipe($this->getMailerMock(false, 'errorinfo'));
             $result = ProcessResult::new();
-            $mail   = new Mail(new Address('test@test.com'));
+            $mail   = new Mail();
             $result = $pipe->process($mail, $result);
             $this->assertTrue($result->failed());
             $this->assertTrue($result->hasInfoFor(get_class($pipe)));
@@ -48,7 +47,7 @@ final class MailerPipeTest extends TestCase
             $pipe   = new MailerPipe($this->getMailerMock(true));
             $result = ProcessResult::new();
             $result->setStatus(ProcessResult::ERRORED);
-            $mail = new Mail(new Address('test@test.com'));
+            $mail = new Mail();
             $this->assertTrue($pipe->process($mail, $result)->errored());
         });
     }

@@ -3,7 +3,6 @@
 namespace Conversio\Mail\Tests\Pipeline;
 
 use Codeception\Specify;
-use Conversio\Mail\Address\Address;
 use Conversio\Mail\Mail;
 use Conversio\Mail\Pipeline\MailPipeline;
 use Conversio\Mail\Pipeline\Pipe\CustomPipe;
@@ -22,13 +21,13 @@ final class MailPipelineTest extends TestCase
     {
         $this->specify('No pipe given', function () {
             $pipeline = new MailPipeline();
-            $mail     = new Mail(new Address('mail@test.de'));
+            $mail     = new Mail();
             $this->assertTrue($pipeline->process($mail)->succeeded());
         });
 
         $this->specify('Append single Pipe', function () {
             $pipeline = new MailPipeline();
-            $mail     = new Mail(new Address('mail@test.de'));
+            $mail     = new Mail();
             $pipeline->appendPipe(new CustomPipe(function (Mail $mail, ProcessResult $result) {
                 return $result->setStatus(ProcessResult::ERRORED);
             }));
@@ -38,7 +37,7 @@ final class MailPipelineTest extends TestCase
 
         $this->specify('Append multiple Pipes', function () {
             $pipeline = new MailPipeline();
-            $mail     = new Mail(new Address('mail@test.de'));
+            $mail     = new Mail();
             $pipeline->appendPipe(new CustomPipe(function (Mail $mail, ProcessResult $result) {
                 return $result->setStatus(ProcessResult::ERRORED);
             }));
@@ -51,7 +50,7 @@ final class MailPipelineTest extends TestCase
 
         $this->specify('Append multiple Pipes, passing Attributes', function () {
             $pipeline = new MailPipeline();
-            $mail     = new Mail(new Address('mail@test.de'));
+            $mail     = new Mail();
             $pipeline->appendPipe(new CustomPipe(function (Mail $mail, ProcessResult $result) {
                 return $result->withAttribute('test1', 'test1');
             }));
