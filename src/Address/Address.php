@@ -67,7 +67,7 @@ class Address
      *
      * @return bool
      */
-    public function equals(Address $address): bool
+    public function equals(self $address): bool
     {
         return $this->getAddress() === $address->getAddress();
     }
