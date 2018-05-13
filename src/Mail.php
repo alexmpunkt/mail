@@ -60,6 +60,11 @@ class Mail
     private $createdAt;
 
     /**
+     * @var AddressContainer
+     */
+    private $replyTos;
+
+    /**
      * Mail constructor.
      *
      * @param DateTime|null $createdAt
@@ -70,6 +75,7 @@ class Mail
         $this->recipients  = new AddressContainer();
         $this->ccs         = new AddressContainer();
         $this->bccs        = new AddressContainer();
+        $this->replyTos    = new AddressContainer();
         $this->attachments = new AttachmentContainer();
         $this->createdAt   = $createdAt !== null ? $createdAt : new DateTime();
     }
@@ -181,5 +187,13 @@ class Mail
     public function setSubject(string $subject)
     {
         $this->subject = $subject;
+    }
+
+    /**
+     * @return AddressContainer
+     */
+    public function replyTos(): AddressContainer
+    {
+        return $this->replyTos;
     }
 }
