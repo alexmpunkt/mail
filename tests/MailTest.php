@@ -7,7 +7,6 @@ use Conversio\Mail\Address\AddressContainer;
 use Conversio\Mail\Attachment\AttachmentContainer;
 use Conversio\Mail\Content;
 use Conversio\Mail\Mail;
-use DateTime;
 use PHPUnit\Framework\TestCase;
 
 /**

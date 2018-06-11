@@ -5,7 +5,6 @@ namespace Conversio\Mail;
 use Conversio\Mail\Address\Address;
 use Conversio\Mail\Address\AddressContainer;
 use Conversio\Mail\Attachment\AttachmentContainer;
-use DateTime;
 use Exception;
 
 /**
