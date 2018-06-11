@@ -49,4 +49,20 @@ class Content
     {
         $this->text = $text;
     }
+
+    /**
+     * @return bool
+     */
+    public function hasHtmlContent(): bool
+    {
+        return $this->html !== '';
+    }
+
+    /**
+     * @return bool
+     */
+    public function hasTextContent(): bool
+    {
+        return $this->text !== '';
+    }
 }
