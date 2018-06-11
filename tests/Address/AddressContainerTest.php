@@ -65,4 +65,14 @@ class AddressContainerTest extends TestCase
 
         $this->assertCount(3, $container->asArray());
     }
+
+    public function testClear()
+    {
+        $container = new AddressContainer();
+        $container->addAddress(new Address('test@example.com', 'Testmail'));
+        $this->assertEquals(1, $container->count());
+
+        $container->clear();
+        $this->assertEquals(0, $container->count());
+    }
 }
