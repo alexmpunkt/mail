@@ -1,12 +1,11 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: alex
- * Date: 13.12.16
- * Time: 20:57
- */
+
 namespace Conversio\Mail\Container;
 
+/**
+ * Class AbstractContainer
+ * @package Conversio\Mail\Container
+ */
 abstract class AbstractContainer
 {
     /**

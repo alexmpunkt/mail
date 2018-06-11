@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: alex
- * Date: 10.12.16
- * Time: 15:47
- */
 
 namespace Conversio\Mail\Tests\Address;
 
