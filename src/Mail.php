@@ -93,7 +93,7 @@ class Mail
      * @return Address
      * @throws Exception
      */
-    public function getFrom(): Address
+    public function from(): Address
     {
         if (!$this->hasFrom()) {
             throw new Exception('There is no from given');

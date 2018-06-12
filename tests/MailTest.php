@@ -45,7 +45,7 @@ class MailTest extends TestCase
     {
         $mail = new Mail();
         $mail->setFrom(new Address('john.doe@test.de', 'John Doe'));
-        $this->assertTrue($mail->getFrom()->equals(new Address('john.doe@test.de', 'John Doe')));
+        $this->assertTrue($mail->from()->equals(new Address('john.doe@test.de', 'John Doe')));
     }
 
     /**
