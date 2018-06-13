@@ -7,7 +7,6 @@ use Conversio\Mail\Address\AddressContainer;
 use Conversio\Mail\Attachment\AttachmentContainer;
 use Conversio\Mail\Content;
 use Conversio\Mail\Mail;
-use DateTime;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -16,20 +15,6 @@ use PHPUnit\Framework\TestCase;
  */
 class MailTest extends TestCase
 {
-    public function testGetId()
-    {
-        $mail = new Mail();
-        $mail->setId('kJhdhw7271Daw');
-        $this->assertEquals('kJhdhw7271Daw', $mail->getId());
-
-        $mail = new Mail();
-        $mail->setId('klj90823KHJDHW');
-        $this->assertEquals('klj90823KHJDHW', $mail->getId());
-
-        $mail = new Mail();
-        $this->assertEquals('', $mail->getId());
-    }
-
     public function testGetSubject()
     {
         $mail = new Mail();
@@ -47,13 +32,20 @@ class MailTest extends TestCase
     public function testGetSender()
     {
         $mail = new Mail();
-        $this->assertFalse($mail->isSenderSet());
+        $this->assertFalse($mail->hasSender());
         $mail->setSender(new Address('john.doe@test.de', 'John Doe'));
         $this->assertTrue($mail->sender()->equals(new Address('john.doe@test.de', 'John Doe')));
-        $this->assertTrue($mail->isSenderSet());
+        $this->assertTrue($mail->hasSender());
 
         $mail->setSender(new Address('max.mustermann@test.de', 'Max Mustermann'));
         $this->assertTrue($mail->sender()->equals(new Address('max.mustermann@test.de')));
+    }
+
+    public function testGetFrom()
+    {
+        $mail = new Mail();
+        $mail->setFrom(new Address('john.doe@test.de', 'John Doe'));
+        $this->assertTrue($mail->from()->equals(new Address('john.doe@test.de', 'John Doe')));
     }
 
     /**
@@ -87,11 +79,5 @@ class MailTest extends TestCase
     public function testAttachments()
     {
         $this->assertInstanceOf(AttachmentContainer::class, $this->getMail()->attachments());
-    }
-
-    public function testGetCreatedAt()
-    {
-        $mail = new Mail(new DateTime('2016-01-01'));
-        $this->assertEquals(new DateTime('2016-01-01'), $mail->getCreatedAt());
     }
 }

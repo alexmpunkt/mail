@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: alex
- * Date: 10.12.16
- * Time: 15:47
- */
 
 namespace Conversio\Mail\Tests\Address;
 
@@ -70,5 +64,15 @@ class AddressContainerTest extends TestCase
         $container->addAddress($address3);
 
         $this->assertCount(3, $container->asArray());
+    }
+
+    public function testClear()
+    {
+        $container = new AddressContainer();
+        $container->addAddress(new Address('test@example.com', 'Testmail'));
+        $this->assertEquals(1, $container->count());
+
+        $container->clear();
+        $this->assertEquals(0, $container->count());
     }
 }
