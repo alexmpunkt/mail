@@ -6,7 +6,7 @@ namespace Conversio\Mail\Address;
  * Class Address
  * @package Conversio\Mail\Address
  */
-class Address
+class Address implements \JsonSerializable
 {
     /**
      * @var string $address
@@ -64,5 +64,17 @@ class Address
     public function equals(self $address): bool
     {
         return $this->getAddress() === $address->getAddress();
+    }
+
+    /**
+     * Specify data which should be serialized to JSON
+     * @link  http://php.net/manual/en/jsonserializable.jsonserialize.php
+     * @return mixed data which can be serialized by <b>json_encode</b>,
+     * which is a value of any type other than a resource.
+     * @since 5.4.0
+     */
+    public function jsonSerialize()
+    {
+        return get_object_vars($this);
     }
 }
