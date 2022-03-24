@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: alex
- * Date: 07.12.16
- * Time: 22:13
- */
 
 namespace Conversio\Mail\Address;
 
@@ -19,16 +13,8 @@ class AddressContainer extends AbstractContainer
     /**
      * @param Address $address
      */
-    public function addAddress(Address $address)
+    public function addAddress(Address $address): void
     {
         $this->store[] = $address;
-    }
-
-    /**
-     * @return Address[]
-     */
-    public function asArray(): array
-    {
-        return parent::asArray();
     }
 }

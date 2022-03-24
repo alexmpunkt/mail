@@ -10,24 +10,13 @@ use Exception;
  */
 final class ProcessResult
 {
-    const SUCCEEDED = 'success';
-    const FAILED    = 'failed';
-    const ERRORED   = 'errored';
+    public const SUCCEEDED = 'success';
+    public const FAILED    = 'failed';
+    public const ERRORED   = 'errored';
 
-    /**
-     * @var string
-     */
-    private $status;
-
-    /**
-     * @var array
-     */
-    private $infos = [];
-
-    /**
-     * @var array
-     */
-    private $attributes = [];
+    private string $status;
+    private array  $infos      = [];
+    private array  $attributes = [];
 
     /**
      * @return ProcessResult
@@ -42,7 +31,7 @@ final class ProcessResult
      *
      * @return $this
      */
-    public function setStatus(string $status)
+    public function setStatus(string $status): ProcessResult
     {
         $this->status = $status;
 
@@ -77,7 +66,7 @@ final class ProcessResult
      * @param string $key
      * @param string $info
      */
-    public function addInfo(string $key, string $info)
+    public function addInfo(string $key, string $info): void
     {
         $this->infos[$key] = $info;
     }

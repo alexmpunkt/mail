@@ -17,7 +17,7 @@ final class Assistant
     /**
      * @var Mail $mail
      */
-    private $mail;
+    private Mail $mail;
 
     /**
      * @return Assistant

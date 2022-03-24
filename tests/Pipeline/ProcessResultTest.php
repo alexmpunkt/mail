@@ -15,7 +15,7 @@ final class ProcessResultTest extends TestCase
 {
     use Specify;
 
-    public function testStatus()
+    public function testStatus(): void
     {
         $this->specify('none', function () {
             $result = ProcessResult::new();
@@ -46,7 +46,7 @@ final class ProcessResultTest extends TestCase
         });
     }
 
-    public function testInfo()
+    public function testInfo(): void
     {
         $result = ProcessResult::new();
         $this->assertFalse($result->hasInfoFor('test'));
@@ -55,7 +55,7 @@ final class ProcessResultTest extends TestCase
         $this->assertEquals('This is the Info', $result->getInfo('test'));
     }
 
-    public function testAttributes()
+    public function testAttributes(): void
     {
         $this->specify('attribute doesnt exist', function () {
             $result = ProcessResult::new();

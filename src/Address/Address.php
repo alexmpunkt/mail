@@ -17,12 +17,12 @@ class Address
     /**
      * @var string $address
      */
-    protected $address;
+    protected string $address;
 
     /**
      * @var string $name
      */
-    private $name;
+    private string $name;
 
     /**
      * Address constructor.

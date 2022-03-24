@@ -17,7 +17,7 @@ final class MailerPipeTest extends TestCase
 {
     use Specify;
 
-    public function testProcess()
+    public function testProcess(): void
     {
         $this->specify('successfully send', function () {
             $pipe   = new MailerPipe($this->getMailerMock(true));
@@ -54,15 +54,15 @@ final class MailerPipeTest extends TestCase
 
     /**
      * @param bool   $sendResponse
-     * @param string $errorinfo
+     * @param string $errorInfo
      *
      * @return MailerInterface
      */
-    private function getMailerMock(bool $sendResponse, string $errorinfo = ''): MailerInterface
+    private function getMailerMock(bool $sendResponse, string $errorInfo = ''): MailerInterface
     {
-        $mock = $this->getMockBuilder(MailerInterface::class)->setMethods(['send', 'getErrorInfo'])->getMock();
+        $mock = $this->getMockBuilder(MailerInterface::class)->addMethods(['send', 'getErrorInfo'])->getMock();
         $mock->method('send')->willReturn($sendResponse);
-        $mock->method('getErrorInfo')->willReturn($errorinfo);
+        $mock->method('getErrorInfo')->willReturn($errorInfo);
 
         /**@var MailerInterface $mock */
         return $mock;

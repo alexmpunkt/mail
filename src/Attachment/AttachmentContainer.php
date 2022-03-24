@@ -19,16 +19,8 @@ class AttachmentContainer extends AbstractContainer
     /**
      * @param AttachmentInterface $attachment
      */
-    public function addAttachment(AttachmentInterface $attachment)
+    public function addAttachment(AttachmentInterface $attachment): void
     {
         $this->store[] = $attachment;
-    }
-
-    /**
-     * @return AttachmentInterface[]
-     */
-    public function asArray(): array
-    {
-        return parent::asArray();
     }
 }

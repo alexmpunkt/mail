@@ -17,52 +17,52 @@ class Mail
     /**
      * @var string $id
      */
-    private $id = '';
+    private string $id = '';
 
     /**
      * @var Address
      */
-    private $sender;
+    private Address $sender;
 
     /**
      * @var string
      */
-    private $subject = '';
+    private string $subject = '';
 
     /**
      * @var Content
      */
-    private $content;
+    private Content $content;
 
     /**
      * @var AddressContainer
      */
-    private $recipients;
+    private AddressContainer $recipients;
 
     /**
      * @var AddressContainer
      */
-    private $ccs;
+    private AddressContainer $ccs;
 
     /**
      * @var AddressContainer
      */
-    private $bccs;
+    private AddressContainer $bccs;
 
     /**
      * @var AttachmentContainer
      */
-    private $attachments;
+    private AttachmentContainer $attachments;
 
     /**
      * @var DateTime
      */
-    private $createdAt;
+    private DateTime $createdAt;
 
     /**
      * @var AddressContainer
      */
-    private $replyTos;
+    private AddressContainer $replyTos;
 
     /**
      * Mail constructor.
@@ -77,13 +77,13 @@ class Mail
         $this->bccs        = new AddressContainer();
         $this->replyTos    = new AddressContainer();
         $this->attachments = new AttachmentContainer();
-        $this->createdAt   = $createdAt !== null ? $createdAt : new DateTime();
+        $this->createdAt   = $createdAt ?? new DateTime();
     }
 
     /**
      * @param Address $sender
      */
-    public function setSender(Address $sender)
+    public function setSender(Address $sender): void
     {
         $this->sender = $sender;
     }
@@ -160,7 +160,7 @@ class Mail
     /**
      * @param string $id
      */
-    public function setId(string $id)
+    public function setId(string $id): void
     {
         $this->id = $id;
     }
@@ -184,7 +184,7 @@ class Mail
     /**
      * @param string $subject
      */
-    public function setSubject(string $subject)
+    public function setSubject(string $subject): void
     {
         $this->subject = $subject;
     }

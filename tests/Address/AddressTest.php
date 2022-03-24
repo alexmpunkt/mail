@@ -14,7 +14,7 @@ class AddressTest extends TestCase
 {
     use Specify;
 
-    public function testGetAddress()
+    public function testGetAddress(): void
     {
         $address = new Address('myaddress@test.de');
         $this->assertEquals('myaddress@test.de', $address->getAddress());
@@ -23,7 +23,7 @@ class AddressTest extends TestCase
         $this->assertEquals('', $address->getAddress());
     }
 
-    public function testGetName()
+    public function testGetName(): void
     {
         $address = new Address('myaddress@test.de');
         $this->assertEquals('', $address->getName());
@@ -32,7 +32,7 @@ class AddressTest extends TestCase
         $this->assertEquals('Max Mustermann', $address->getName());
     }
 
-    public function testisValid()
+    public function testisValid(): void
     {
         $address = new Address('myaddress@test.de');
         $this->assertTrue($address->isValid());
@@ -44,7 +44,7 @@ class AddressTest extends TestCase
         $this->assertTrue($address->isValid());
     }
 
-    public function testEquals()
+    public function testEquals(): void
     {
         $this->specify('Adresses are not equal', function () {
             $address1 = new Address('test@test.de', 'John Doe');

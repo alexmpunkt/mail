@@ -17,12 +17,12 @@ class Content
     /**
      * @var string
      */
-    private $html = '';
+    private string $html = '';
 
     /**
      * @var string
      */
-    private $text = '';
+    private string $text = '';
 
     /**
      * @return string
@@ -35,7 +35,7 @@ class Content
     /**
      * @param string $html
      */
-    public function setHtml(string $html)
+    public function setHtml(string $html): void
     {
         $this->html = $html;
     }
@@ -51,7 +51,7 @@ class Content
     /**
      * @param string $text
      */
-    public function setText(string $text)
+    public function setText(string $text): void
     {
         $this->text = $text;
     }

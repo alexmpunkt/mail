@@ -13,7 +13,7 @@ use PHPUnit\Framework\TestCase;
  */
 final class CustomPipeTest extends TestCase
 {
-    public function testProcess()
+    public function testProcess(): void
     {
         $mail   = new Mail();
         $result = ProcessResult::new();
