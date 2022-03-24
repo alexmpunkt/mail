@@ -5,7 +5,6 @@ namespace Conversio\Mail\Pipeline\Pipe;
 use Conversio\Mail\Mail;
 use Conversio\Mail\Pipeline\MailPipeInterface;
 use Conversio\Mail\Pipeline\ProcessResult;
-use phpDocumentor\Reflection\Types\Callable_;
 
 /**
  * Class CustomPipe

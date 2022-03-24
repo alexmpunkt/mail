@@ -31,7 +31,7 @@ final class ProcessResult
      *
      * @return $this
      */
-    public function setStatus(string $status): ProcessResult
+    public function setStatus(string $status): self
     {
         $this->status = $status;
 
