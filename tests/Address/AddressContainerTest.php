@@ -18,13 +18,13 @@ use PHPUnit\Framework\TestCase;
  */
 class AddressContainerTest extends TestCase
 {
-    public function testIsEmpty()
+    public function testIsEmpty(): void
     {
         $container = new AddressContainer();
         $this->assertTrue($container->isEmpty());
     }
 
-    public function testIsNotEmpty()
+    public function testIsNotEmpty(): void
     {
         $address   = new Address('test@test.de', 'Max Mustermann');
         $container = new AddressContainer();
@@ -32,7 +32,7 @@ class AddressContainerTest extends TestCase
         $this->assertFalse($container->isEmpty());
     }
 
-    public function testAddAddress()
+    public function testAddAddress(): void
     {
         $address   = new Address('test@test.de', 'Max Mustermann');
         $address2  = new Address('test2@test.de', 'Max Mustermann');
@@ -43,7 +43,7 @@ class AddressContainerTest extends TestCase
         $this->assertEquals(2, $container->count());
     }
 
-    public function testSize()
+    public function testSize(): void
     {
         $address   = new Address('test@test.de', 'Max Mustermann');
         $address2  = new Address('test2@test.de', 'Max Mustermann');
@@ -57,7 +57,7 @@ class AddressContainerTest extends TestCase
         $this->assertEquals(3, $container->count());
     }
 
-    public function testAsArray()
+    public function testAsArray(): void
     {
         $container = new AddressContainer();
         $this->assertEquals([], $container->asArray());

@@ -16,7 +16,7 @@ use PHPUnit\Framework\TestCase;
  */
 class MailTest extends TestCase
 {
-    public function testGetId()
+    public function testGetId(): void
     {
         $mail = new Mail();
         $mail->setId('kJhdhw7271Daw');
@@ -30,7 +30,7 @@ class MailTest extends TestCase
         $this->assertEquals('', $mail->getId());
     }
 
-    public function testGetSubject()
+    public function testGetSubject(): void
     {
         $mail = new Mail();
         $mail->setSubject('kJhdhw7271Daw');
@@ -44,7 +44,7 @@ class MailTest extends TestCase
         $this->assertEquals('', $mail->getSubject());
     }
 
-    public function testGetSender()
+    public function testGetSender(): void
     {
         $mail = new Mail();
         $this->assertFalse($mail->isSenderSet());
@@ -59,37 +59,37 @@ class MailTest extends TestCase
     /**
      * @return Mail
      */
-    private function getMail()
+    private function getMail(): Mail
     {
         return new Mail();
     }
 
-    public function testRecipients()
+    public function testRecipients(): void
     {
         $this->assertInstanceOf(AddressContainer::class, $this->getMail()->recipients());
     }
 
-    public function testCcs()
+    public function testCcs(): void
     {
         $this->assertInstanceOf(AddressContainer::class, $this->getMail()->ccs());
     }
 
-    public function testBccs()
+    public function testBccs(): void
     {
         $this->assertInstanceOf(AddressContainer::class, $this->getMail()->bccs());
     }
 
-    public function testContent()
+    public function testContent(): void
     {
         $this->assertInstanceOf(Content::class, $this->getMail()->content());
     }
 
-    public function testAttachments()
+    public function testAttachments(): void
     {
         $this->assertInstanceOf(AttachmentContainer::class, $this->getMail()->attachments());
     }
 
-    public function testGetCreatedAt()
+    public function testGetCreatedAt(): void
     {
         $mail = new Mail(new DateTime('2016-01-01'));
         $this->assertEquals(new DateTime('2016-01-01'), $mail->getCreatedAt());

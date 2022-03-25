@@ -1,11 +1,12 @@
 <?php
 
-namespace Conversio\Mail\Tests\Assitant;
+namespace Conversio\Mail\Tests\Assistant;
 
 use Conversio\Mail\Address\Address;
 use Conversio\Mail\Assistant\Assistant;
 use Conversio\Mail\Pipeline\MailPipeline;
 use Conversio\Mail\Pipeline\ProcessResult;
+use Exception;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -14,49 +15,53 @@ use PHPUnit\Framework\TestCase;
  */
 class AssistantTest extends TestCase
 {
-    public function testListen()
+    public function testListen(): void
     {
         $this->assertInstanceOf(Assistant::class, Assistant::listen());
     }
 
-    public function testListenTo()
+    public function testListenTo(): void
     {
-        $this->assertEquals('test@test.de', Assistant::listenTo(new Address('test@test.de'))
-                                                     ->getMail()->sender()->getAddress());
+        try {
+            $address = Assistant::listenTo(new Address('test@test.de'))->getMail()->sender()->getAddress();
+            $this->assertEquals('test@test.de', $address);
+        } catch (Exception $e) {
+            $this->fail();
+        }
     }
 
-    public function testWrite()
+    public function testWrite(): void
     {
         $this->assertEquals('This is a test', Assistant::listen()->write('This is a test')->getMail()->content()->getText());
     }
 
-    public function testWritehHtml()
+    public function testWriteHtml(): void
     {
-        $this->assertEquals('<b>This is a test</b>', Assistant::listen()
-                                                              ->writeHtml('<b>This is a test</b>')->getMail()->content()->getHtml());
+        $html = Assistant::listen()->writeHtml('<b>This is a test</b>')->getMail()->content()->getHtml();
+        $this->assertEquals('<b>This is a test</b>', $html);
     }
 
-    public function testCopyTo()
+    public function testCopyTo(): void
     {
         $first  = new Address('copy1@test.de');
         $second = new Address('copy2@test.de');
         $this->assertEquals([$first, $second], Assistant::listen()->copyTo($first)->copyTo($second)->getMail()->ccs()->asArray());
     }
 
-    public function testBlindTo()
+    public function testBlindTo(): void
     {
         $first  = new Address('blind1@test.de');
         $second = new Address('blind2@test.de');
         $this->assertEquals([$first, $second], Assistant::listen()->blindTo($first)->blindTo($second)->getMail()->bccs()->asArray());
     }
 
-    public function testWithSubject()
+    public function testWithSubject(): void
     {
-        $this->assertEquals('This is the Subject', Assistant::listen()
-                                                            ->withSubject('This is the Subject')->getMail()->getSubject());
+        $subject = Assistant::listen()->withSubject('This is the Subject')->getMail()->getSubject();
+        $this->assertEquals('This is the Subject', $subject);
     }
 
-    public function testSendThrough()
+    public function testSendThrough(): void
     {
         $this->assertInstanceOf(ProcessResult::class, Assistant::listen()->sendThrough(new MailPipeline()));
     }

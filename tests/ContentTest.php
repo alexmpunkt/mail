@@ -18,7 +18,7 @@ use PHPUnit\Framework\TestCase;
  */
 class ContentTest extends TestCase
 {
-    public function testGetHtml()
+    public function testGetHtml(): void
     {
         $content = new Content();
         $this->assertEquals('', $content->getHtml());
@@ -26,7 +26,7 @@ class ContentTest extends TestCase
         $this->assertEquals('<b>Dies ist ein Text</b>', $content->getHtml());
     }
 
-    public function testGetText()
+    public function testGetText(): void
     {
         $content = new Content();
         $this->assertEquals('', $content->getText());

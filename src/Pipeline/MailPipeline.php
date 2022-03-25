@@ -13,14 +13,14 @@ final class MailPipeline implements MailPipelineInterface
     /**
      * @var MailPipeInterface[]
      */
-    private $pipes = [];
+    private array $pipes = [];
 
     /**
-     * @param MailPipeInterface $mailpipe
+     * @param MailPipeInterface $mailPipe
      */
-    public function appendPipe(MailPipeInterface $mailpipe)
+    public function appendPipe(MailPipeInterface $mailPipe): void
     {
-        $this->pipes[] = $mailpipe;
+        $this->pipes[] = $mailPipe;
     }
 
     /**

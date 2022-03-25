@@ -12,7 +12,7 @@ abstract class AbstractContainer
     /**
      * @var array
      */
-    protected $store = [];
+    protected array $store = [];
 
     /**
      * @return bool

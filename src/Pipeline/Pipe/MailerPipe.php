@@ -16,7 +16,7 @@ final class MailerPipe implements MailPipeInterface
     /**
      * @var MailerInterface
      */
-    private $mailer;
+    private MailerInterface $mailer;
 
     /**
      * MailerPipe constructor.

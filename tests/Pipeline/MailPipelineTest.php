@@ -17,7 +17,7 @@ final class MailPipelineTest extends TestCase
 {
     use Specify;
 
-    public function testProcess()
+    public function testProcess(): void
     {
         $this->specify('No pipe given', function () {
             $pipeline = new MailPipeline();
