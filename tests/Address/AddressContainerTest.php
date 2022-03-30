@@ -43,6 +43,17 @@ class AddressContainerTest extends TestCase
         $this->assertEquals(2, $container->count());
     }
 
+    public function testClearAddress(): void
+    {
+        $address   = new Address('test@test.de', 'Max Mustermann');
+        $address2  = new Address('test2@test.de', 'Max Mustermann');
+        $container = new AddressContainer();
+        $container->addAddress($address);
+        $container->addAddress($address2);
+        $container->clear();
+        $this->assertEquals(0, $container->count());
+    }
+
     public function testSize(): void
     {
         $address   = new Address('test@test.de', 'Max Mustermann');

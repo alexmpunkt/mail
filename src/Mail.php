@@ -20,9 +20,9 @@ class Mail
     private string $id = '';
 
     /**
-     * @var Address
+     * @var Address|null
      */
-    private Address $sender;
+    private ?Address $sender = null;
 
     /**
      * @var string

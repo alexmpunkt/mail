@@ -37,4 +37,10 @@ abstract class AbstractContainer
     {
         return $this->store;
     }
+
+    public function clear(): void
+    {
+        $this->store = [];
+    }
+
 }

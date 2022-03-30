@@ -10,11 +10,12 @@ use Exception;
  */
 final class ProcessResult
 {
+    public const UNDEFINED = 'undefined';
     public const SUCCEEDED = 'success';
     public const FAILED    = 'failed';
     public const ERRORED   = 'errored';
 
-    private string $status;
+    private string $status     = ProcessResult::UNDEFINED;
     private array  $infos      = [];
     private array  $attributes = [];
 
