@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: alex
- * Date: 07.12.16
- * Time: 22:14
- */
 
 namespace Conversio\Mail\Address;
 
@@ -12,20 +6,14 @@ namespace Conversio\Mail\Address;
  * Class Address
  * @package Conversio\Mail\Address
  */
-class Address
+class Address implements \JsonSerializable
 {
-    /**
-     * @var string $address
-     */
     protected string $address;
 
-    /**
-     * @var string $name
-     */
     private string $name;
 
     /**
-     * Address constructor.
+     * Address constructor
      *
      * @param string $address
      * @param string $name
@@ -70,5 +58,10 @@ class Address
     public function equals(self $address): bool
     {
         return $this->getAddress() === $address->getAddress();
+    }
+
+    public function jsonSerialize()
+    {
+        return get_object_vars($this);
     }
 }
