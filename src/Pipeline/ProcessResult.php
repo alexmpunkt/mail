@@ -15,7 +15,7 @@ final class ProcessResult
     public const FAILED    = 'failed';
     public const ERRORED   = 'errored';
 
-    private string $status     = ProcessResult::UNDEFINED;
+    private string $status     = self::UNDEFINED;
     private array  $infos      = [];
     private array  $attributes = [];
 

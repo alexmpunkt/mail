@@ -15,7 +15,6 @@ use PHPUnit\Framework\TestCase;
  */
 class MailTest extends TestCase
 {
-
     public function testGetSubject(): void
     {
         $mail = new Mail();
@@ -81,5 +80,4 @@ class MailTest extends TestCase
     {
         $this->assertInstanceOf(AttachmentContainer::class, $this->getMail()->attachments());
     }
-
 }

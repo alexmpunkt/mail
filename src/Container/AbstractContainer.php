@@ -40,5 +40,4 @@ abstract class AbstractContainer
     {
         $this->store = [];
     }
-
 }
