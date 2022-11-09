@@ -5,7 +5,6 @@ namespace Conversio\Mail;
 use Conversio\Mail\Address\Address;
 use Conversio\Mail\Address\AddressContainer;
 use Conversio\Mail\Attachment\AttachmentContainer;
-use DateTime;
 use Exception;
 
 /**
@@ -15,14 +14,14 @@ use Exception;
 class Mail
 {
     /**
-     * @var string $id
+     * @var Address|null $id
      */
-    private string $id = '';
+    private ?Address $sender = null;
 
     /**
-     * @var Address
+     * @var Address|null
      */
-    private Address $sender;
+    private ?Address $from = null;
 
     /**
      * @var string
@@ -55,21 +54,14 @@ class Mail
     private AttachmentContainer $attachments;
 
     /**
-     * @var DateTime
-     */
-    private DateTime $createdAt;
-
-    /**
      * @var AddressContainer
      */
     private AddressContainer $replyTos;
 
     /**
-     * Mail constructor.
-     *
-     * @param DateTime|null $createdAt
+     * Mail constructor
      */
-    public function __construct(DateTime $createdAt = null)
+    public function __construct()
     {
         $this->content     = new Content();
         $this->recipients  = new AddressContainer();
@@ -77,7 +69,28 @@ class Mail
         $this->bccs        = new AddressContainer();
         $this->replyTos    = new AddressContainer();
         $this->attachments = new AttachmentContainer();
-        $this->createdAt   = $createdAt ?? new DateTime();
+    }
+
+    /**
+     * @param Address $from
+     *
+     */
+    public function setFrom(Address $from)
+    {
+        $this->from = $from;
+    }
+
+    /**
+     * @return Address
+     * @throws Exception
+     */
+    public function from(): Address
+    {
+        if (!$this->hasFrom()) {
+            throw new Exception('There is no from given');
+        }
+
+        return $this->from;
     }
 
     /**
@@ -94,7 +107,7 @@ class Mail
      */
     public function sender(): Address
     {
-        if (!$this->isSenderSet()) {
+        if (!$this->hasSender()) {
             throw new Exception('There is no sender given');
         }
 
@@ -104,9 +117,17 @@ class Mail
     /**
      * @return bool
      */
-    public function isSenderSet(): bool
+    public function hasSender(): bool
     {
         return $this->sender !== null;
+    }
+
+    /**
+     * @return bool
+     */
+    public function hasFrom(): bool
+    {
+        return $this->from !== null;
     }
 
     /**
@@ -147,30 +168,6 @@ class Mail
     public function attachments(): AttachmentContainer
     {
         return $this->attachments;
-    }
-
-    /**
-     * @return string
-     */
-    public function getId(): string
-    {
-        return $this->id;
-    }
-
-    /**
-     * @param string $id
-     */
-    public function setId(string $id): void
-    {
-        $this->id = $id;
-    }
-
-    /**
-     * @return DateTime
-     */
-    public function getCreatedAt(): DateTime
-    {
-        return $this->createdAt;
     }
 
     /**

@@ -60,7 +60,7 @@ final class MailerPipeTest extends TestCase
      */
     private function getMailerMock(bool $sendResponse, string $errorInfo = ''): MailerInterface
     {
-        $mock = $this->getMockBuilder(MailerInterface::class)->addMethods(['send', 'getErrorInfo'])->getMock();
+        $mock = $this->getMockBuilder(MailerInterface::class)->onlyMethods(['send', 'getErrorInfo'])->getMock();
         $mock->method('send')->willReturn($sendResponse);
         $mock->method('getErrorInfo')->willReturn($errorInfo);
 

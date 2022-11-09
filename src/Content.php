@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: alex
- * Date: 08.12.16
- * Time: 20:45
- */
 
 namespace Conversio\Mail;
 
@@ -54,5 +48,21 @@ class Content
     public function setText(string $text): void
     {
         $this->text = $text;
+    }
+
+    /**
+     * @return bool
+     */
+    public function hasHtmlContent(): bool
+    {
+        return $this->html !== '';
+    }
+
+    /**
+     * @return bool
+     */
+    public function hasTextContent(): bool
+    {
+        return $this->text !== '';
     }
 }
