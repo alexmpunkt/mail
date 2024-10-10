@@ -60,6 +60,7 @@ class Address implements \JsonSerializable
         return $this->getAddress() === $address->getAddress();
     }
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         return get_object_vars($this);
